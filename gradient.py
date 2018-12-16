@@ -14,7 +14,7 @@ def _numerical_gradient_1d(f, x):
         fxh2 = f(x) # f(x-h)
         grad[idx] = (fxh1 - fxh2) / (2*h)
         
-        x[idx] = tmp_val # 値を元に戻す
+        x[idx] = tmp_val
         
     return grad
 
@@ -32,7 +32,7 @@ def numerical_gradient_2d(f, X):
 
 
 def numerical_gradient(f, x):
-    h = 1e-4 # 0.0001
+    h = 1e-4
     grad = np.zeros_like(x)
     
     it = np.nditer(x, flags=['multi_index'], op_flags=['readwrite'])
@@ -46,7 +46,7 @@ def numerical_gradient(f, x):
         fxh2 = f(x) # f(x-h)
         grad[idx] = (fxh1 - fxh2) / (2*h)
         
-        x[idx] = tmp_val # 値を元に戻す
+        x[idx] = tmp_val
         it.iternext()   
         
     return grad
