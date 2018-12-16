@@ -3,8 +3,7 @@ import numpy as np
 from optimizer import *
 
 class Trainer:
-    """ニューラルネットの訓練を行うクラス
-    """
+
     def __init__(self, network, x_train, t_train, x_test, t_test,
                  epochs=20, mini_batch_size=100,
                  optimizer='SGD', optimizer_param={'lr':0.01}, 
@@ -21,7 +20,7 @@ class Trainer:
 
         # optimizer
         optimizer_class_dict = {'sgd':SGD, 'momentum':Momentum, 'nesterov':Nesterov,
-                                'adagrad':AdaGrad, 'rmsprpo':RMSprop, 'adam':Adam}
+                                'adagrad':AdaGrad, 'rmsprop':RMSprop, 'adam':Adam}
         self.optimizer = optimizer_class_dict[optimizer.lower()](**optimizer_param)
         
         self.train_size = x_train.shape[0]
