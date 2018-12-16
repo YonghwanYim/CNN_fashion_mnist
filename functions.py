@@ -28,7 +28,7 @@ def softmax(x):
         y = np.exp(x) / np.sum(np.exp(x), axis=0)
         return y.T 
 
-    x = x - np.max(x) # オーバーフロー対策
+    x = x - np.max(x)
     return np.exp(x) / np.sum(np.exp(x))
 
 def mean_squared_error(y, t):
